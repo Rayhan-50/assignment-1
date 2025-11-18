@@ -21,7 +21,10 @@ keyof-এর প্রাথমিক ব্যবহার হলো এটি 
 
 # TypeScript keyof – এক লাইনে বোঝা যাক
 
-typescript
+
+## Using `keyof` in TypeScript for Safe Property Access
+
+```ts
 interface UserProfile {
   id: number;
   username: string;
@@ -29,15 +32,18 @@ interface UserProfile {
   isVerified: boolean;
 }
 
-// keyof UserProfile === 'id' | 'username' | 'email' | 'isVerified'
+// keyof UserProfile === "id" | "username" | "email" | "isVerified"
 
-// ✅ সঠিক কী ব্যবহার: এটি সফলভাবে কাজ করে এবং টাইপ সুরক্ষিত থাকে।
-const userName = getPropertyValue(myProfile, 'username'); 
+// ✅ Correct Usage: Type-safe property access
+const userName = getPropertyValue(myProfile, "username");
 
-// ❌ ভুল কী ব্যবহার: এটি একটি কম্পাইলার এরর ঘটায়!
-// Argument of type '"age"' is not assignable to parameter of type '"id" | "username" | "email" | "isVerified"'.
-// কম্পাইলার জানে যে 'age' UserProfile-এর একটি বৈধ কী নয়।
-// const userAge = getPropertyValue(myProfile, 'age'); 
+// ❌ Incorrect Usage: Causes a compiler error
+// Argument of type '"age"' is not assignable to parameter of 
+// type '"id" | "username" | "email" | "isVerified"'.
+//
+// The compiler knows that "age" is NOT a valid key of UserProfile.
+// const userAge = getPropertyValue(myProfile, "age");   // ❌ Error
+
 
 
 keyof ব্যবহার করার ফলে, কম্পাইলার স্বয়ংক্রিয়ভাবে 'age' আর্গুমেন্টটিকে অবৈধ ঘোষণা করে, কারণ এটি UserProfile-এর বৈধ কী-এর ইউনিয়ন টাইপ ('id' | 'username' | 'email' | 'isVerified') এর অন্তর্ভুক্ত নয়।
