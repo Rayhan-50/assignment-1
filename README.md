@@ -157,4 +157,4 @@ const userId = getPropertyValue(myProfile, 'id');
 // ❌ ভুল কী ব্যবহার (কম্পাইলার এরর)
 // const userAge = getPropertyValue(myProfile, 'age');
 keyof ব্যবহার করার ফলে, কম্পাইলার ‘age’ কে অবৈধ ঘোষণা করে, কারণ এটি অবজেক্টের বৈধ key নয়।
-e them with headings, or create a table of contents.
+e them with headings, or create a table of contents.
