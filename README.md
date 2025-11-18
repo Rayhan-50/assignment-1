@@ -43,6 +43,7 @@ const userName = getPropertyValue(myProfile, "username");
 //
 // The compiler knows that "age" is NOT a valid key of UserProfile.
 // const userAge = getPropertyValue(myProfile, "age");   // ❌ Error
+<!-- END OF CODE SNIPPET -->
 
 
 
