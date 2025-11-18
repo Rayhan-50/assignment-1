@@ -38,16 +38,14 @@ interface UserProfile {
 const userName = getPropertyValue(myProfile, "username");
 
 // ❌ Incorrect Usage: Causes a compiler error
-// Argument of type '"age"' is not assignable to parameter of 
+// Argument of type '"age"' is not assignable to 
 // type '"id" | "username" | "email" | "isVerified"'.
 //
 // The compiler knows that "age" is NOT a valid key of UserProfile.
-// const userAge = getPropertyValue(myProfile, "age");   // ❌ Error
-<!-- END OF CODE SNIPPET -->
+// const userAge = getPropertyValue(myProfile, "age"); // ❌ Error
+````
 
-
-
-keyof ব্যবহার করার ফলে, কম্পাইলার স্বয়ংক্রিয়ভাবে 'age' আর্গুমেন্টটিকে অবৈধ ঘোষণা করে, কারণ এটি UserProfile-এর বৈধ কী-এর ইউনিয়ন টাইপ ('id' | 'username' | 'email' | 'isVerified') এর অন্তর্ভুক্ত নয়।
+keyof ব্যবহার করার ফলে, কম্পাইলার স্বয়ংক্রিয়ভাবে `'age'` আর্গুমেন্টটিকে অবৈধ ঘোষণা করে, কারণ এটি `UserProfile`-এর বৈধ কী ইউনিয়নের মধ্যে নেই (`'id' | 'username' | 'email' | 'isVerified'`)।
 
 -----
 
