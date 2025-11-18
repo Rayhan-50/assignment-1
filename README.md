@@ -21,7 +21,7 @@ keyof-এর প্রাথমিক ব্যবহার হলো এটি 
 
 # TypeScript keyof – এক লাইনে বোঝা যাক
 
-```typescript
+typescript
 interface UserProfile {
   id: number;
   username: string;
@@ -30,36 +30,6 @@ interface UserProfile {
 }
 
 // keyof UserProfile === 'id' | 'username' | 'email' | 'isVerified'
-type ProfileKeys = keyof UserProfile;
-//   ^^^^^^^^^^^^
-//   "id" | "username" | "email" | "isVerified"
-`
-
-#### ২. keyof সহ জেনারেটিক গেটার ফাংশন
-
-typescript
-/**
- * @param obj - যে অবজেক্ট থেকে প্রপার্টির মান নেওয়া হবে (টাইপ T)।
- * @param key - অবজেক্টের বৈধ কী (টাইপ K, যা keyof T দ্বারা সীমাবদ্ধ)।
- * @returns প্রপার্টির মান (টাইপ T[K], যা লুকআপ টাইপ ব্যবহার করে সংজ্ঞায়িত)।
- */
-function getPropertyValue<T extends object, K extends keyof T>(
-  obj: T,
-  key: K
-): T[K] { 
-  return obj[key];
-}
-
-
-#### ৩. বাস্তবে কার্যকারিতা প্রদর্শন
-
-typescript
-const myProfile: UserProfile = {
-  id: 123,
-  username: "ts_dev",
-  email: "dev@example.com",
-  isVerified: true
-};
 
 // ✅ সঠিক কী ব্যবহার: এটি সফলভাবে কাজ করে এবং টাইপ সুরক্ষিত থাকে।
 const userName = getPropertyValue(myProfile, 'username'); 
