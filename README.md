@@ -19,7 +19,9 @@ keyof-এর প্রাথমিক ব্যবহার হলো এটি 
 
 #### ১. অবজেক্ট টাইপ সংজ্ঞায়িত করা
 
-typescript
+# TypeScript keyof – এক লাইনে বোঝা যাক
+
+```typescript
 interface UserProfile {
   id: number;
   username: string;
@@ -28,6 +30,9 @@ interface UserProfile {
 }
 
 // keyof UserProfile === 'id' | 'username' | 'email' | 'isVerified'
+type ProfileKeys = keyof UserProfile;
+//   ^^^^^^^^^^^^
+//   "id" | "username" | "email" | "isVerified"
 `
 
 #### ২. keyof সহ জেনারেটিক গেটার ফাংশন
